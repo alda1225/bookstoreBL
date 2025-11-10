@@ -1,0 +1,13 @@
+9/11/2025 21:57:25	Este registro contiene información acerca de la operación de importación del script 'script_todos.sql' en el proyecto 'bookstoreBI' del equipo 'DESKTOP-O9GB0OM' por el usuario 'USUARIO.
+9/11/2025 21:57:25	Se inició la importación del archivo: C:\Proyectos\MAESTRIA\Modulo 5\script_todos.sql 
+9/11/2025 21:57:25	Nombre de archivo: C:\Proyectos\MAESTRIA\Modulo 5\script_todos.sql (tamaño: 24899874)
+9/11/2025 21:57:25	Analizando script de importación
+9/11/2025 21:57:31	Número total de lotes en el script: 1061
+9/11/2025 21:57:31	Número total de instrucciones en el script: 35
+9/11/2025 21:57:31	El script se importó correctamente en el proyecto.
+9/11/2025 21:57:31	Analizando los objetos de esquema...
+9/11/2025 21:57:31	Buscando elementos duplicados en el proyecto
+9/11/2025 21:57:32	Ha finalizado el procesamiento de los elementos duplicados
+9/11/2025 21:57:33	En el script que proporcionó para la operación de importación, no se comprendieron totalmente dos o más instrucciones. Estas instrucciones se movieron al archivo ScriptsIgnoredOnImport.sql. Revise el contenido del archivo para obtener más información.
+9/11/2025 21:57:33	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\Registros de importación de scripts\script_todos_sql_20251110015725.log
+9/11/2025 21:57:33	Haga clic en Finalizar para continuar...

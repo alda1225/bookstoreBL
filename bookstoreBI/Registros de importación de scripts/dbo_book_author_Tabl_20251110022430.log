@@ -1,0 +1,10 @@
+9/11/2025 22:24:30	Este registro contiene información acerca de la operación de importación del script 'dbo.book_author.Table.sql' en el proyecto 'bookstoreBI' del equipo 'DESKTOP-O9GB0OM' por el usuario 'USUARIO.
+9/11/2025 22:24:30	Se inició la importación del archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.book_author.Table.sql 
+9/11/2025 22:24:30	Nombre de archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.book_author.Table.sql (tamaño: 2573548)
+9/11/2025 22:24:30	Analizando script de importación
+9/11/2025 22:24:32	Número total de lotes en el script: 178
+9/11/2025 22:24:32	Número total de instrucciones en el script: 0
+9/11/2025 22:24:32	El script se importó correctamente en el proyecto.
+9/11/2025 22:24:32	En el script que proporcionó para la operación de importación, no se comprendieron totalmente dos o más instrucciones. Estas instrucciones se movieron al archivo ScriptsIgnoredOnImport.sql. Revise el contenido del archivo para obtener más información.
+9/11/2025 22:24:32	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\Registros de importación de scripts\dbo_book_author_Tabl_20251110022430.log
+9/11/2025 22:24:32	Haga clic en Finalizar para continuar...

@@ -1,0 +1,10 @@
+9/11/2025 22:28:14	Este registro contiene información acerca de la operación de importación del script 'dbo.order_line.Table.sql' en el proyecto 'bookstoreBI' del equipo 'DESKTOP-O9GB0OM' por el usuario 'USUARIO.
+9/11/2025 22:28:14	Se inició la importación del archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.order_line.Table.sql 
+9/11/2025 22:28:14	Nombre de archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.order_line.Table.sql (tamaño: 3901750)
+9/11/2025 22:28:14	Analizando script de importación
+9/11/2025 22:28:15	Número total de lotes en el script: 156
+9/11/2025 22:28:15	Número total de instrucciones en el script: 0
+9/11/2025 22:28:15	El script se importó correctamente en el proyecto.
+9/11/2025 22:28:15	En el script que proporcionó para la operación de importación, no se comprendieron totalmente dos o más instrucciones. Estas instrucciones se movieron al archivo ScriptsIgnoredOnImport.sql. Revise el contenido del archivo para obtener más información.
+9/11/2025 22:28:15	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\Registros de importación de scripts\dbo_order_line_Table_20251110022814.log
+9/11/2025 22:28:15	Haga clic en Finalizar para continuar...

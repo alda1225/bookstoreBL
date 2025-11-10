@@ -1,0 +1,10 @@
+9/11/2025 22:26:23	Este registro contiene información acerca de la operación de importación del script 'dbo.cust_order.Table.sql' en el proyecto 'bookstoreBI' del equipo 'DESKTOP-O9GB0OM' por el usuario 'USUARIO.
+9/11/2025 22:26:23	Se inició la importación del archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.cust_order.Table.sql 
+9/11/2025 22:26:23	Nombre de archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.cust_order.Table.sql (tamaño: 2767146)
+9/11/2025 22:26:23	Analizando script de importación
+9/11/2025 22:26:24	Número total de lotes en el script: 77
+9/11/2025 22:26:24	Número total de instrucciones en el script: 0
+9/11/2025 22:26:24	El script se importó correctamente en el proyecto.
+9/11/2025 22:26:24	En el script que proporcionó para la operación de importación, no se comprendieron totalmente dos o más instrucciones. Estas instrucciones se movieron al archivo ScriptsIgnoredOnImport.sql. Revise el contenido del archivo para obtener más información.
+9/11/2025 22:26:24	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\Registros de importación de scripts\dbo_cust_order_Table_20251110022623.log
+9/11/2025 22:26:24	Haga clic en Finalizar para continuar...

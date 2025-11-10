@@ -1,0 +1,10 @@
+9/11/2025 22:13:37	Este registro contiene información acerca de la operación de importación del script 'dbo.address_status.Table.sql' en el proyecto 'bookstoreBI' del equipo 'DESKTOP-O9GB0OM' por el usuario 'USUARIO.
+9/11/2025 22:13:37	Se inició la importación del archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.address_status.Table.sql 
+9/11/2025 22:13:37	Nombre de archivo: C:\Proyectos\MAESTRIA\Modulo 5\script\dbo.address_status.Table.sql (tamaño: 396)
+9/11/2025 22:13:37	Analizando script de importación
+9/11/2025 22:13:37	Número total de lotes en el script: 2
+9/11/2025 22:13:37	Número total de instrucciones en el script: 0
+9/11/2025 22:13:38	El script se importó correctamente en el proyecto.
+9/11/2025 22:13:38	En el script que proporcionó para la operación de importación, no se comprendieron totalmente dos o más instrucciones. Estas instrucciones se movieron al archivo ScriptsIgnoredOnImport.sql. Revise el contenido del archivo para obtener más información.
+9/11/2025 22:13:38	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\Registros de importación de scripts\dbo_address_status_T_20251110021337.log
+9/11/2025 22:13:38	Haga clic en Finalizar para continuar...

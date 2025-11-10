@@ -1,0 +1,10 @@
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\bin\Debug\bookstoreBI.dacpac
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\bin\Debug\bookstoreBI.dll
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\bin\Debug\bookstoreBI.pdb
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\bookstoreBI.sqlproj.AssemblyReference.cache
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\Model.xml
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\refactor.xml
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\postdeploy.sql
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\predeploy.sql
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\bookstoreBI.dll
+C:\Users\USUARIO\source\repos\bookstoreBI\bookstoreBI\obj\Debug\bookstoreBI.pdb
