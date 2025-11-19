@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[DimShippingMethod](
+	[ShippingMethodKey] [int] IDENTITY(1,1) NOT NULL,
+	[ShippingMethodID] [int] NOT NULL,
+	[MethodName] [varchar](100) NULL,
+	[Cost] [decimal](6, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ShippingMethodKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]

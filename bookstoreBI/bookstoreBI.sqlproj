@@ -82,20 +82,23 @@
     <Build Include="dbo\Stored Procedures\GetCustomerChangesByRowVersion.sql" />
     <Build Include="dbo\Stored Procedures\GetDatabaseRowVersion.sql" />
     <Build Include="dbo\Stored Procedures\GetShippingMethodChangesByRowVersion.sql" />
-    <None Include="Scripts\address.data.sql" />
-    <None Include="Scripts\address_status.data.sql" />
-    <None Include="Scripts\author.data.sql" />
-    <None Include="Scripts\book.data.sql" />
-    <None Include="Scripts\book_author.data.sql" />
-    <None Include="Scripts\book_language.data.sql" />
-    <None Include="Scripts\country.data.sql" />
-    <None Include="Scripts\cust_order.data.sql" />
-    <None Include="Scripts\customer.data.sql" />
-    <None Include="Scripts\order_history.data.sql" />
-    <None Include="Scripts\order_line.data.sql" />
-    <None Include="Scripts\order_status.data.sql" />
-    <None Include="Scripts\publisher.data.sql" />
-    <None Include="Scripts\shipping_method.data.sql" />
-    <None Include="Scripts\customer_address.data.sql" />
+    <None Include="Scripts\dbo.address.Table.sql" />
+    <None Include="Scripts\dbo.address_status.Table.sql" />
+    <None Include="Scripts\dbo.author.Table.sql" />
+    <None Include="Scripts\dbo.book.Table.sql" />
+    <None Include="Scripts\dbo.book_author.Table.sql" />
+    <None Include="Scripts\dbo.book_language.Table.sql" />
+    <None Include="Scripts\dbo.country.Table.sql" />
+    <None Include="Scripts\dbo.cust_order.Table.sql" />
+    <None Include="Scripts\dbo.customer.Table.sql" />
+    <None Include="Scripts\dbo.customer_address.Table.sql" />
+    <None Include="Scripts\dbo.order_history.Table.sql" />
+    <None Include="Scripts\dbo.order_line.Table.sql" />
+    <None Include="Scripts\dbo.order_status.Table.sql" />
+    <None Include="Scripts\dbo.publisher.Table.sql" />
+    <None Include="Scripts\dbo.shipping_method.Table.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
