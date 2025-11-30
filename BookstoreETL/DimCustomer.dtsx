@@ -1,26 +1,38 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="11/30/2025 1:15:05 AM"
+  DTS:CreationDate="11/30/2025 10:15:50 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-O9GB0OM"
   DTS:CreatorName="DESKTOP-O9GB0OM\USUARIO"
-  DTS:DTSID="{5FEF84D9-8066-45CF-A9CA-68C1BE74A321}"
+  DTS:DTSID="{7C40B0E6-5D0A-4BEF-85D9-0A8DE941FE7D}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1008.3"
   DTS:LocaleID="16394"
-  DTS:ObjectName="DimBook"
+  DTS:ObjectName="DimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{CF7BE21B-271E-4372-9A01-9676892BE122}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{50521554-6D53-41AC-8FD8-A88EE04E586E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Destination.BookstoreDW]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{51C4646B-C7B0-4549-9060-FF44DF763EBE}"
+      DTS:DTSID="{4B49AA5A-A1C9-482D-91E1-7BB95936F123}"
       DTS:ObjectName="Destination.BookstoreDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=BookstoreDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCustomer-{4B49AA5A-A1C9-482D-91E1-7BB95936F123}localhost.BookstoreDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destination.BookstoreDW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{51C4646B-C7B0-4549-9060-FF44DF763EBE}"
+      DTS:ObjectName="Destination.BookstoreDW 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -31,8 +43,20 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Source.Bookstore]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{7C956F49-5637-4353-AC19-6B7D366A6732}"
+      DTS:DTSID="{089413A5-A1E6-4B06-9DB9-0433169E5F04}"
       DTS:ObjectName="Source.Bookstore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimCustomer-{089413A5-A1E6-4B06-9DB9-0433169E5F04}localhost.Bookstore;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Source.Bookstore 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7C956F49-5637-4353-AC19-6B7D366A6732}"
+      DTS:ObjectName="Source.Bookstore 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -44,7 +68,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{30DC18AB-AC65-48F5-A222-47CF489D4094}"
+      DTS:DTSID="{F968128E-BC5A-4C40-817F-4ACAC061D293}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dbts">
@@ -53,7 +77,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EEDE9740-6A00-4BA8-9A3D-DBBAC25C647C}"
+      DTS:DTSID="{F7DB6577-8AE6-4532-BF59-1A4B5FF9E438}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="lastRowVersion">
@@ -66,7 +90,7 @@
       DTS:refId="Package\cleaun-up staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{82D50157-3C84-4681-8F5E-F64135DC97AD}"
+      DTS:DTSID="{507ccfe2-eccf-46ad-a882-ee5e0909f6a3}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="cleaun-up staging"
@@ -74,15 +98,15 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{51C4646B-C7B0-4549-9060-FF44DF763EBE}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE staging.book;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{4B49AA5A-A1C9-482D-91E1-7BB95936F123}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE staging.customer;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Get Database RowVersion"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{871964CD-0959-4B92-BFE0-26702F19E034}"
+      DTS:DTSID="{34360e64-8186-48bd-a386-cc32965a23b9}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get Database RowVersion"
@@ -90,7 +114,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{7C956F49-5637-4353-AC19-6B7D366A6732}"
+          SQLTask:Connection="{089413A5-A1E6-4B06-9DB9-0433169E5F04}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetDatabaseRowVersion]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -103,7 +127,7 @@
       DTS:refId="Package\Get LastRowVersion"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{EEC08407-1D5A-40FC-9F75-83A58223CEA0}"
+      DTS:DTSID="{445af14a-89a2-4d39-bb23-8820848b3541}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LastRowVersion"
@@ -111,8 +135,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{51C4646B-C7B0-4549-9060-FF44DF763EBE}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'Book'"
+          SQLTask:Connection="{4B49AA5A-A1C9-482D-91E1-7BB95936F123}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'Customer'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LastRowVersion"
@@ -121,13 +145,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Load Books"
+      DTS:refId="Package\Load Customers"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{DFC6FF3B-CD01-4B04-BAC0-ACFF3F7C8ABE}"
+      DTS:DTSID="{07c11eed-3b9d-4383-ae67-c38563e8bd74}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Load Books"
+      DTS:ObjectName="Load Customers"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -135,7 +159,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Load Books\Búsqueda"
+              refId="Package\Load Customers\Búsqueda"
               componentClassID="Microsoft.Lookup"
               contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
               description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
@@ -148,14 +172,14 @@
                   description="Especifica la instrucción SQL que genera la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimBook]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimCustomer]</property>
                 <property
                   dataType="System.String"
                   description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimBook]) [refTable]
-where [refTable].[BookID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimCustomer]) [refTable]
+where [refTable].[CustomerID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
@@ -186,12 +210,12 @@ where [refTable].[BookID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BookKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BookID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Title" dataType="DT_STR" length="400" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ISBN13" dataType="DT_STR" length="13" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LanguageCode" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LanguageName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="NumPages" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PublicationDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PublisherName" dataType="DT_STR" length="400" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Authors" dataType="DT_STR" length="800" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FirstName" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LastName" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FullName" dataType="DT_STR" length="401" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Email" dataType="DT_STR" length="350" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StreetName" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StreetNumber" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="City" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AddressStatus" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryName" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[book_id]};</property>
+                  name="ParameterMap">#{Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[customer_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -203,7 +227,7 @@ where [refTable].[BookID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Books\Búsqueda.Connections[OleDbConnection]"
+                  refId="Package\Load Customers\Búsqueda.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Destination.BookstoreDW]"
                   connectionManagerRefId="Package.ConnectionManagers[Destination.BookstoreDW]"
                   description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
@@ -211,19 +235,19 @@ where [refTable].[BookID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Books\Búsqueda.Inputs[Entrada de búsqueda]"
+                  refId="Package\Load Customers\Búsqueda.Inputs[Entrada de búsqueda]"
                   name="Entrada de búsqueda">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Books\Búsqueda.Inputs[Entrada de búsqueda].Columns[book_id]"
+                      refId="Package\Load Customers\Búsqueda.Inputs[Entrada de búsqueda].Columns[customer_id]"
                       cachedDataType="i4"
-                      cachedName="book_id"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[book_id]">
+                      cachedName="customer_id"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[customer_id]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia con la que se combina una columna."
-                          name="JoinToReferenceColumn">BookID</property>
+                          name="JoinToReferenceColumn">CustomerID</property>
                         <property
                           dataType="System.Null"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
@@ -236,54 +260,54 @@ where [refTable].[BookID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Books\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  refId="Package\Load Customers\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
                   errorOrTruncationOperation="Búsqueda"
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
-                  synchronousInputId="Package\Load Books\Búsqueda.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Load Customers\Búsqueda.Inputs[Entrada de búsqueda]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Books\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[BookKey]"
+                      refId="Package\Load Customers\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[CustomerKey]"
                       dataType="i4"
                       errorOrTruncationOperation="Copiar columna"
-                      lineageId="Package\Load Books\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[BookKey]"
-                      name="BookKey"
+                      lineageId="Package\Load Customers\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[CustomerKey]"
+                      name="CustomerKey"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">BookKey</property>
+                          name="CopyFromReferenceColumn">CustomerKey</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Books\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  refId="Package\Load Customers\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
                   description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
                   exclusionGroup="1"
                   name="Salida de entradas no coincidentes de búsqueda"
-                  synchronousInputId="Package\Load Books\Búsqueda.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Load Customers\Búsqueda.Inputs[Entrada de búsqueda]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Books\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  refId="Package\Load Customers\Búsqueda.Outputs[Salida de error de búsqueda]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de búsqueda"
-                  synchronousInputId="Package\Load Books\Búsqueda.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Load Customers\Búsqueda.Inputs[Entrada de búsqueda]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Books\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      refId="Package\Load Customers\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      lineageId="Package\Load Customers\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Books\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      refId="Package\Load Customers\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      lineageId="Package\Load Customers\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -292,11 +316,11 @@ where [refTable].[BookID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Books\Get Books"
+              refId="Package\Load Customers\Get Customers"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Get Books"
+              name="Get Customers"
               usesDispositions="true"
               version="7">
               <properties>
@@ -316,7 +340,7 @@ where [refTable].[BookID] = ?</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXECUTE [dbo].[GetBookChangesByRowVersion] @startRow = ?, @endRow = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXECUTE [dbo].[GetCustomerChangesByRowVersion] @startRow = ?, @endRow = ?</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -337,11 +361,11 @@ where [refTable].[BookID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Asignaciones entre los parámetros del comando SQL y las variables."
-                  name="ParameterMapping">"@startRow:Input",{EEDE9740-6A00-4BA8-9A3D-DBBAC25C647C};"@endRow:Input",{30DC18AB-AC65-48F5-A222-47CF489D4094};</property>
+                  name="ParameterMapping">"@startRow:Input",{F7DB6577-8AE6-4532-BF59-1A4B5FF9E438};"@endRow:Input",{F968128E-BC5A-4C40-817F-4ACAC061D293};</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Books\Get Books.Connections[OleDbConnection]"
+                  refId="Package\Load Customers\Get Customers.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Source.Bookstore]"
                   connectionManagerRefId="Package.ConnectionManagers[Source.Bookstore]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -349,227 +373,263 @@ where [refTable].[BookID] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[book_id]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[customer_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[book_id]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[book_id]"
-                      name="book_id"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[customer_id]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[customer_id]"
+                      name="customer_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[title]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[first_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[title]"
-                      length="400"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[title]"
-                      name="title"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[first_name]"
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[first_name]"
+                      name="first_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[isbn13]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[last_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[isbn13]"
-                      length="13"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[isbn13]"
-                      name="isbn13"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[last_name]"
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[last_name]"
+                      name="last_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_code]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[email]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[language_code]"
-                      length="8"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_code]"
-                      name="language_code"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[email]"
+                      length="350"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[email]"
+                      name="email"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[language_name]"
-                      length="50"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_name]"
-                      name="language_name"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[street_name]"
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_name]"
+                      name="street_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[num_pages]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[num_pages]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[num_pages]"
-                      name="num_pages"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publication_date]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[publication_date]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publication_date]"
-                      name="publication_date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publisher_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_number]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[publisher_name]"
-                      length="400"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publisher_name]"
-                      name="publisher_name"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[street_number]"
+                      length="10"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_number]"
+                      name="street_number"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[author_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[city]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[author_name]"
-                      length="400"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[author_name]"
-                      name="author_name"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[city]"
+                      length="100"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[address_status]"
+                      length="30"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[address_status]"
+                      name="address_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[country_name]"
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[country_name]"
+                      name="country_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[full_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[full_Name]"
+                      length="401"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[full_Name]"
+                      name="full_Name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[book_id]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[customer_id]"
                       dataType="i4"
-                      name="book_id" />
+                      name="customer_id" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[title]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="title" />
+                      length="200"
+                      name="first_name" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[isbn13]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
-                      name="isbn13" />
+                      length="200"
+                      name="last_name" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[language_code]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
-                      length="8"
-                      name="language_code" />
+                      length="350"
+                      name="email" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[language_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[street_name]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      name="language_name" />
+                      length="200"
+                      name="street_name" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[num_pages]"
-                      dataType="i4"
-                      name="num_pages" />
-                    <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[publication_date]"
-                      dataType="dbDate"
-                      name="publication_date" />
-                    <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[publisher_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[street_number]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="publisher_name" />
+                      length="10"
+                      name="street_number" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].ExternalColumns[author_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[city]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="author_name" />
+                      length="100"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="address_status" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="country_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].ExternalColumns[full_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="401"
+                      name="full_Name" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[book_id]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[customer_id]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[book_id]"
-                      name="book_id" />
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[customer_id]"
+                      name="customer_id" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[title]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[first_name]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[title]"
-                      name="title" />
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[first_name]"
+                      name="first_name" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[isbn13]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[last_name]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[isbn13]"
-                      name="isbn13" />
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[last_name]"
+                      name="last_name" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[language_code]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[full_Name]"
                       codePage="1252"
                       dataType="str"
-                      length="8"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[language_code]"
-                      name="language_code" />
+                      length="401"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[full_Name]"
+                      name="full_Name" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[language_name]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[email]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[language_name]"
-                      name="language_name" />
+                      length="350"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[email]"
+                      name="email" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[num_pages]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[street_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[street_name]"
+                      name="street_name" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[street_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[street_number]"
+                      name="street_number" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[address_status]"
+                      name="address_status" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[country_name]"
+                      name="country_name" />
+                    <outputColumn
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[num_pages]"
-                      name="num_pages" />
-                    <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[publication_date]"
-                      dataType="dbDate"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[publication_date]"
-                      name="publication_date" />
-                    <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[publisher_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="400"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[publisher_name]"
-                      name="publisher_name" />
-                    <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[author_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="400"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[author_name]"
-                      name="author_name" />
-                    <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -578,11 +638,11 @@ where [refTable].[BookID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Books\Load New Book"
+              refId="Package\Load Customers\Load New Customer"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Load New Book"
+              name="Load New Customer"
               usesDispositions="true"
               version="4">
               <properties>
@@ -593,7 +653,7 @@ where [refTable].[BookID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[DimBook]</property>
+                  name="OpenRowset">[dbo].[DimCustomer]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -635,7 +695,7 @@ where [refTable].[BookID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Books\Load New Book.Connections[OleDbConnection]"
+                  refId="Package\Load Customers\Load New Customer.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Destination.BookstoreDW]"
                   connectionManagerRefId="Package.ConnectionManagers[Destination.BookstoreDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -643,154 +703,176 @@ where [refTable].[BookID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[title]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="title"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Title]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[title]" />
+                      cachedLength="350"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[Email]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[email]" />
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[isbn13]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="13"
-                      cachedName="isbn13"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[ISBN13]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[isbn13]" />
+                      cachedLength="100"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[city]" />
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[book_id]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[customer_id]"
                       cachedDataType="i4"
-                      cachedName="book_id"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[BookID]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[book_id]" />
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerID]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[customer_id]" />
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[language_code]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[first_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="language_code"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageCode]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_code]" />
+                      cachedLength="200"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FirstName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[first_name]" />
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[language_name]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[last_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="language_name"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageName]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_name]" />
+                      cachedLength="200"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[LastName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[last_name]" />
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[num_pages]"
-                      cachedDataType="i4"
-                      cachedName="num_pages"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumPages]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[num_pages]" />
-                    <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[publication_date]"
-                      cachedDataType="dbDate"
-                      cachedName="publication_date"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublicationDate]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publication_date]" />
-                    <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[publisher_name]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[street_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="publisher_name"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublisherName]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publisher_name]" />
+                      cachedLength="200"
+                      cachedName="street_name"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_name]" />
                     <inputColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].Columns[author_name]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[street_number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="author_name"
-                      externalMetadataColumnId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Authors]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[author_name]" />
+                      cachedLength="10"
+                      cachedName="street_number"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetNumber]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_number]" />
+                    <inputColumn
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[address_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="address_status"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[AddressStatus]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[address_status]" />
+                    <inputColumn
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[country_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="country_name"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CountryName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[country_name]" />
+                    <inputColumn
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].Columns[full_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="401"
+                      cachedName="full_Name"
+                      externalMetadataColumnId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FullName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[full_Name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[BookKey]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerKey]"
                       dataType="i4"
-                      name="BookKey" />
+                      name="CustomerKey" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[BookID]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerID]"
                       dataType="i4"
-                      name="BookID" />
+                      name="CustomerID" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Title]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FirstName]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="Title" />
+                      length="200"
+                      name="FirstName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[ISBN13]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[LastName]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
-                      name="ISBN13" />
+                      length="200"
+                      name="LastName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageCode]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FullName]"
                       codePage="1252"
                       dataType="str"
-                      length="8"
-                      name="LanguageCode" />
+                      length="401"
+                      name="FullName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageName]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[Email]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      name="LanguageName" />
+                      length="350"
+                      name="Email" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumPages]"
-                      dataType="i4"
-                      name="NumPages" />
-                    <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublicationDate]"
-                      dataType="dbDate"
-                      name="PublicationDate" />
-                    <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublisherName]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetName]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="PublisherName" />
+                      length="200"
+                      name="StreetName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Authors]"
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetNumber]"
                       codePage="1252"
                       dataType="str"
-                      length="800"
-                      name="Authors" />
+                      length="10"
+                      name="StreetNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[AddressStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="AddressStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CountryName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Books\Load New Book.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Load Customers\Load New Customer.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Books\Load New Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Load Customers\Load New Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Load New Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Load Customers\Load New Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Books\Load New Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Load Customers\Load New Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Load New Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Load Customers\Load New Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -799,11 +881,11 @@ where [refTable].[BookID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Books\Update Existing Book"
+              refId="Package\Load Customers\Update Existing Customer"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Update Existing Book"
+              name="Update Existing Customer"
               usesDispositions="true"
               version="4">
               <properties>
@@ -814,7 +896,7 @@ where [refTable].[BookID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[staging].[book]</property>
+                  name="OpenRowset">[staging].[customer]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -856,7 +938,7 @@ where [refTable].[BookID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Books\Update Existing Book.Connections[OleDbConnection]"
+                  refId="Package\Load Customers\Update Existing Customer.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Destination.BookstoreDW]"
                   connectionManagerRefId="Package.ConnectionManagers[Destination.BookstoreDW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -864,150 +946,172 @@ where [refTable].[BookID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[title]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="title"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Title]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[title]" />
+                      cachedLength="350"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[Email]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[email]" />
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[isbn13]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="13"
-                      cachedName="isbn13"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[ISBN13]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[isbn13]" />
+                      cachedLength="100"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[city]" />
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[book_id]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[customer_id]"
                       cachedDataType="i4"
-                      cachedName="book_id"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[BookSK]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[book_id]" />
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerSK]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[customer_id]" />
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[language_code]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[first_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="language_code"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageCode]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_code]" />
+                      cachedLength="200"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FirstName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[first_name]" />
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[language_name]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[last_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="language_name"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageName]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[language_name]" />
+                      cachedLength="200"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[LastName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[last_name]" />
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[num_pages]"
-                      cachedDataType="i4"
-                      cachedName="num_pages"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumPages]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[num_pages]" />
-                    <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[publication_date]"
-                      cachedDataType="dbDate"
-                      cachedName="publication_date"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublicationDate]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publication_date]" />
-                    <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[publisher_name]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[street_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="publisher_name"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublisherName]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[publisher_name]" />
+                      cachedLength="200"
+                      cachedName="street_name"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_name]" />
                     <inputColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].Columns[author_name]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[street_number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="author_name"
-                      externalMetadataColumnId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Authors]"
-                      lineageId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB].Columns[author_name]" />
+                      cachedLength="10"
+                      cachedName="street_number"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetNumber]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[street_number]" />
+                    <inputColumn
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[address_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="address_status"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[AddressStatus]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[address_status]" />
+                    <inputColumn
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[country_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="country_name"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CountryName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[country_name]" />
+                    <inputColumn
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].Columns[full_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="401"
+                      cachedName="full_Name"
+                      externalMetadataColumnId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FullName]"
+                      lineageId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB].Columns[full_Name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[BookSK]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CustomerSK]"
                       dataType="i4"
-                      name="BookSK" />
+                      name="CustomerSK" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Title]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FirstName]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="Title" />
+                      length="200"
+                      name="FirstName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[ISBN13]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[LastName]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
-                      name="ISBN13" />
+                      length="200"
+                      name="LastName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageCode]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[FullName]"
                       codePage="1252"
                       dataType="str"
-                      length="8"
-                      name="LanguageCode" />
+                      length="401"
+                      name="FullName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[LanguageName]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[Email]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      name="LanguageName" />
+                      length="350"
+                      name="Email" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[NumPages]"
-                      dataType="i4"
-                      name="NumPages" />
-                    <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublicationDate]"
-                      dataType="dbDate"
-                      name="PublicationDate" />
-                    <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[PublisherName]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetName]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="PublisherName" />
+                      length="200"
+                      name="StreetName" />
                     <externalMetadataColumn
-                      refId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB].ExternalColumns[Authors]"
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[StreetNumber]"
                       codePage="1252"
                       dataType="str"
-                      length="800"
-                      name="Authors" />
+                      length="10"
+                      name="StreetNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[AddressStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="AddressStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB].ExternalColumns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CountryName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Books\Update Existing Book.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Load Customers\Update Existing Customer.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Books\Update Existing Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Load Customers\Update Existing Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Update Existing Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Load Customers\Update Existing Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Books\Update Existing Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Load Customers\Update Existing Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Books\Update Existing Book.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Load Customers\Update Existing Customer.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1018,20 +1122,20 @@ where [refTable].[BookID] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Load Books.Paths[Salida de entradas coincidentes de búsqueda]"
-              endId="Package\Load Books\Update Existing Book.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\Load Customers.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Load Customers\Update Existing Customer.Inputs[Entrada de destino de OLE DB]"
               name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\Load Books\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+              startId="Package\Load Customers\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Load Books.Paths[Salida de entradas no coincidentes de búsqueda]"
-              endId="Package\Load Books\Load New Book.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\Load Customers.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Load Customers\Load New Customer.Inputs[Entrada de destino de OLE DB]"
               name="Salida de entradas no coincidentes de búsqueda"
-              startId="Package\Load Books\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+              startId="Package\Load Customers\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
-              refId="Package\Load Books.Paths[Salida de origen de OLE DB]"
-              endId="Package\Load Books\Búsqueda.Inputs[Entrada de búsqueda]"
+              refId="Package\Load Customers.Paths[Salida de origen de OLE DB]"
+              endId="Package\Load Customers\Búsqueda.Inputs[Entrada de búsqueda]"
               name="Salida de origen de OLE DB"
-              startId="Package\Load Books\Get Books.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\Load Customers\Get Customers.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1040,7 +1144,7 @@ where [refTable].[BookID] = ?</property>
       DTS:refId="Package\Sync Staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{A1CD752E-E49C-4D34-8CA4-3919A33B34CD}"
+      DTS:DTSID="{1602a754-dc3e-44bd-a4d9-97d583a96575}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Sync Staging"
@@ -1048,15 +1152,15 @@ where [refTable].[BookID] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{51C4646B-C7B0-4549-9060-FF44DF763EBE}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimBook] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{4B49AA5A-A1C9-482D-91E1-7BB95936F123}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimCustomer] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Update Config"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{5F0AF2F1-23A4-4287-A8B3-8D8310BB9587}"
+      DTS:DTSID="{53ea9da4-4715-46f5-a782-38110ecb075b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Config"
@@ -1064,8 +1168,8 @@ where [refTable].[BookID] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{51C4646B-C7B0-4549-9060-FF44DF763EBE}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion] @tableName = 'Book', @lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:Connection="{4B49AA5A-A1C9-482D-91E1-7BB95936F123}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion] @tableName = 'Customer', @lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::dbts"
@@ -1080,7 +1184,7 @@ where [refTable].[BookID] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{4DA5B2B1-14F8-47C8-B97E-16990BAE2972}"
+      DTS:DTSID="{699A3719-732B-4A3B-BB54-21B1BD652F9B}"
       DTS:From="Package\Get Database RowVersion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
@@ -1088,7 +1192,7 @@ where [refTable].[BookID] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
-      DTS:DTSID="{BA96A0DA-4BD1-4C7F-A4B1-7F4A0500B123}"
+      DTS:DTSID="{C5201975-9F7F-4DD2-9E9F-318519735131}"
       DTS:From="Package\Get LastRowVersion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
@@ -1096,23 +1200,23 @@ where [refTable].[BookID] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
-      DTS:DTSID="{4AAC3824-8596-4FAD-A41C-E9C51DE83BF8}"
+      DTS:DTSID="{54388720-3D1A-48ED-A606-D95DC177C47B}"
       DTS:From="Package\cleaun-up staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
-      DTS:To="Package\Load Books" />
+      DTS:To="Package\Load Customers" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
       DTS:CreationName=""
-      DTS:DTSID="{449E956B-D9E3-449E-9BAD-E4CE276C5988}"
-      DTS:From="Package\Load Books"
+      DTS:DTSID="{1A7EDE6D-68D9-4AE3-9800-2CF4A2A49AAE}"
+      DTS:From="Package\Load Customers"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 3"
       DTS:To="Package\Sync Staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
       DTS:CreationName=""
-      DTS:DTSID="{B16C78D2-3AA3-4459-90BD-CDCC8CC79449}"
+      DTS:DTSID="{BAF37065-047E-4071-9B0E-E832DD553D5D}"
       DTS:From="Package\Sync Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 4"
@@ -1131,131 +1235,143 @@ where [refTable].[BookID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\cleaun-up staging"
-          TopLeft="483.333306925166,249.599998264313" />
-        <NodeLayout
           Size="201.6,41.6"
           Id="Package\Get Database RowVersion"
-          TopLeft="468.333307744729,56.3333329415983" />
+          TopLeft="360.833316896525,74.7333332308796" />
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Get LastRowVersion"
-          TopLeft="478.333307198353,155.133332254555" />
+          TopLeft="381.66664581332,168.999998824795" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="465.049981354923,116.33333323088">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.6666655939156"
+              Start="0,0"
+              End="0,45.1666655939156">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.1666655939156" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\Load Books"
-          TopLeft="495.833306242195,350.13333089855" />
+          Size="160.8,41.6"
+          Id="Package\cleaun-up staging"
+          TopLeft="386.666648818388,237.666665720476" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="467.766647315854,210.599998824795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.0666668956809"
+              Start="0,0"
+              End="0,19.5666668956809">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5666668956809" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Load Customers"
+          TopLeft="398.333314847616,317.599999204477" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="467.066648818388,279.266665720476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.46666602922812,38.3333334840007"
+              Start="0,0"
+              End="8.46666602922812,30.8333334840007">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.1666667420003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.1666667420003"
+                    Point2="0,19.1666667420003"
+                    Point3="4,19.1666667420003" />
+                  <mssgle:LineSegment
+                    End="4.46666602922812,19.1666667420003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.46666602922812,19.1666667420003"
+                    Point2="8.46666602922812,19.1666667420003"
+                    Point3="8.46666602922812,23.1666667420003" />
+                  <mssgle:LineSegment
+                    End="8.46666602922812,30.8333334840007" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="140,41.6"
           Id="Package\Sync Staging"
-          TopLeft="484.99997350077,448.933330211507" />
+          TopLeft="400.833314711022,396.666666027837" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="473.183314779319,359.199999204477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.4666668233606"
+              Start="0,0"
+              End="0,29.9666668233606">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9666668233606" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="144.8,41.6"
           Id="Package\Update Config"
-          TopLeft="484.999973500769,559.799996112784" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="567.133307471541,97.9333329415983">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.1999993129571"
-              Start="0,0"
-              End="0,49.6999993129571">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.6999993129571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="564.433307061759,196.733332254555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.8666660097572"
-              Start="0,0"
-              End="0,45.3666660097572">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.3666660097572" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="563.183306583681,291.199998264313">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.9333326342371"
-              Start="0,0"
-              End="0,51.4333326342371">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.4333326342371" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="558.816639871482,391.73333089855">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.1999993129571"
-              Start="0,0"
-              End="0,49.6999993129571">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.6999993129571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="396.666644993757,490.933330247667" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="556.19997350077,490.533330211507">
+          TopLeft="469.949979852389,438.266666027837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69.2666659012771"
+              EndConnector="0,52.6666642198299"
               Start="0,0"
-              End="0,61.7666659012771">
+              End="0,45.1666642198299">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.7666659012771" />
+                    End="0,45.1666642198299" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1268,40 +1384,52 @@ where [refTable].[BookID] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Load Books">
+    design-time-name="Package\Load Customers">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\Load Books\Get Books"
-          TopLeft="509.166638847028,75.3999994756778" />
+          Size="148,41.6"
+          Id="Package\Load Customers\Get Customers"
+          TopLeft="509.166638847028,74.5333328150379" />
         <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Load Books\Load New Book"
+          Size="172.8,41.6"
+          Id="Package\Load Customers\Load New Customer"
           TopLeft="702.499961617094,299.866664581431" />
         <NodeLayout
           Size="125.6,41.6"
-          Id="Package\Load Books\Búsqueda"
-          TopLeft="505.833305695819,168.133332164155" />
+          Id="Package\Load Customers\Búsqueda"
+          TopLeft="506.666638983621,168.999998824795" />
         <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\Load Books\Update Existing Book"
+          Size="199.2,41.6"
+          Id="Package\Load Customers\Update Existing Customer"
           TopLeft="256.666652643019,318.066664454871" />
         <EdgeLayout
-          Id="Package\Load Books.Paths[Salida de origen de OLE DB]"
-          TopLeft="570.699972271424,116.999999475678">
+          Id="Package\Load Customers.Paths[Salida de origen de OLE DB]"
+          TopLeft="583.166638847028,116.133332815038">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.1333326884772"
+              EndConnector="-13.6999998634069,52.8666660097571"
               Start="0,0"
-              End="0,43.6333326884772">
+              End="-13.6999998634069,45.3666660097571">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.6333326884772" />
+                    End="0,22.4333330048785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4333330048785"
+                    Point2="0,26.4333330048785"
+                    Point3="-4,26.4333330048785" />
+                  <mssgle:LineSegment
+                    End="-9.6999998634069,26.4333330048785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.6999998634069,26.4333330048785"
+                    Point2="-13.6999998634069,26.4333330048785"
+                    Point3="-13.6999998634069,30.4333330048785" />
+                  <mssgle:LineSegment
+                    End="-13.6999998634069,45.3666660097571" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1311,74 +1439,74 @@ where [refTable].[BookID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Books.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="568.633305695819,209.733332164155">
+          Id="Package\Load Customers.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="589.066638983621,210.599998824795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="209.466655921275,90.1333324172763"
+              EndConnector="199.833322633473,89.266665756636"
               Start="0,0"
-              End="209.466655921275,82.6333324172763">
+              End="199.833322633473,81.766665756636">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.0666662086381" />
+                    End="0,32.3803769876101" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41.0666662086381"
-                    Point2="0,45.0666662086381"
-                    Point3="4,45.0666662086381" />
+                    Point1="0,32.3803769876101"
+                    Point2="0,36.3803769876101"
+                    Point3="4,36.3803769876101" />
                   <mssgle:LineSegment
-                    End="205.466655921275,45.0666662086381" />
+                    End="195.833322633473,36.3803769876101" />
                   <mssgle:CubicBezierSegment
-                    Point1="205.466655921275,45.0666662086381"
-                    Point2="209.466655921275,45.0666662086381"
-                    Point3="209.466655921275,49.0666662086381" />
+                    Point1="195.833322633473,36.3803769876101"
+                    Point2="199.833322633473,36.3803769876101"
+                    Point3="199.833322633473,40.3803769876101" />
                   <mssgle:LineSegment
-                    End="209.466655921275,82.6333324172763" />
+                    End="199.833322633473,81.766665756636" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-2.15569547686262,50.0666662086381,213.778046875,12.1953125"
+              BoundingBox="-6.97236212076361,41.3803769876101,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Books.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="549.033305695819,209.733332164155">
+          Id="Package\Load Customers.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="549.866638983621,210.599998824795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-203.566653052801,108.333332290716"
+              EndConnector="-193.599986340602,107.466665630076"
               Start="0,0"
-              End="-203.566653052801,100.833332290716">
+              End="-193.599986340602,99.966665630076">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.1509429713106" />
+                    End="0,39.797735426597" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.1509429713106"
-                    Point2="0,44.1509429713106"
-                    Point3="-4,44.1509429713106" />
+                    Point1="0,39.797735426597"
+                    Point2="0,43.797735426597"
+                    Point3="-4,43.797735426597" />
                   <mssgle:LineSegment
-                    End="-199.566653052801,44.1509429713106" />
+                    End="-189.599986340602,43.797735426597" />
                   <mssgle:CubicBezierSegment
-                    Point1="-199.566653052801,44.1509429713106"
-                    Point2="-203.566653052801,44.1509429713106"
-                    Point3="-203.566653052801,48.1509429713106" />
+                    Point1="-189.599986340602,43.797735426597"
+                    Point2="-193.599986340602,43.797735426597"
+                    Point3="-193.599986340602,47.797735426597" />
                   <mssgle:LineSegment
-                    End="-203.566653052801,100.833332290716" />
+                    End="-193.599986340602,99.966665630076" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-201.6023499639,49.1509429713106,199.638046875,12.1953125"
+              BoundingBox="-196.619016607801,48.797735426597,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1386,7 +1514,7 @@ where [refTable].[BookID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Books\Get Books">
+    design-time-name="Package\Load Customers\Get Customers">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1394,7 +1522,7 @@ where [refTable].[BookID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Books\Load New Book">
+    design-time-name="Package\Load Customers\Load New Customer">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1407,22 +1535,22 @@ where [refTable].[BookID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Books\Búsqueda">
+    design-time-name="Package\Load Customers\Búsqueda">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimBook]</Value>
+          type="q3:string">[dbo].[DimCustomer]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1430,7 +1558,7 @@ where [refTable].[BookID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Books\Update Existing Book">
+    design-time-name="Package\Load Customers\Update Existing Customer">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
