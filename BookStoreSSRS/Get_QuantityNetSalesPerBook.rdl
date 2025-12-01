@@ -9,68 +9,43 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>18.0.11222.15</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-01T02:37:13.5832176Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-01T02:46:00.0963314Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="BookStoreDW">
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=DESKTOP-1DVSRKL\SQL2025;Initial Catalog=BookstoreDW</ConnectString>
-        <IntegratedSecurity>true</IntegratedSecurity>
-      </ConnectionProperties>
-      <rd:SecurityType>Integrated</rd:SecurityType>
-      <rd:DataSourceID>2d17ed46-c966-470a-8e6b-65cb1b9d71bf</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="BookStoreOLAB">
+    <DataSource Name="BookStoreOLAP">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=DESKTOP-1DVSRKL\SQL2025;Initial Catalog=Bookstore</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>665d9fb1-3ee0-4cb2-bcbc-5b385505bd19</rd:DataSourceID>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>852bf2c8-1972-4f27-9e39-c78793bc6138</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="GetQuantityGlobal">
-      <Query>
-        <DataSourceName>BookStoreDW</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>Get_TotalQuantity</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="TotalQuantity">
-          <DataField>TotalQuantity</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
     <DataSet Name="Get_QuantityNetSalesPerBook">
       <Query>
-        <DataSourceName>BookStoreDW</DataSourceName>
+        <DataSourceName>BookStoreOLAP</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>Get_QuantityNetSalesPerBook</CommandText>
+        <CommandText>Get_TotalQuantityPerBook_Origen</CommandText>
       </Query>
       <Fields>
-        <Field Name="BookKey">
-          <DataField>BookKey</DataField>
+        <Field Name="BookID">
+          <DataField>BookID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Title">
-          <DataField>Title</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ISBN13">
-          <DataField>ISBN13</DataField>
+        <Field Name="BookTitle">
+          <DataField>BookTitle</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TotalQuantity">
           <DataField>TotalQuantity</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="TotalNetSales">
-          <DataField>TotalNetSales</DataField>
+        <Field Name="TotalSales">
+          <DataField>TotalSales</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
@@ -84,16 +59,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.36458in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.36458in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.26042in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.36458in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
@@ -101,7 +73,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.43229in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -112,7 +84,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Book Key</Value>
+                                  <Value>Book ID</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -142,7 +114,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Title</Value>
+                                  <Value>Book Title</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -172,7 +144,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ISBN13</Value>
+                                  <Value>Total Quantity</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -202,7 +174,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total Quantity</Value>
+                                  <Value>Total Sales</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -225,60 +197,28 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox9">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Total Net Sales</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox9</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.43229in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="BookKey">
+                        <Textbox Name="BookID">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!BookKey.Value</Value>
+                                  <Value>=Fields!BookID.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>BookKey</rd:DefaultName>
+                          <rd:DefaultName>BookID</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -294,51 +234,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Title">
+                        <Textbox Name="BookTitle">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Title.Value</Value>
+                                  <Value>=Fields!BookTitle.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Title</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="ISBN13">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!ISBN13.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>ISBN13</rd:DefaultName>
+                          <rd:DefaultName>BookTitle</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -362,9 +272,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!TotalQuantity.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -386,14 +294,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TotalNetSales">
+                        <Textbox Name="TotalSales">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TotalNetSales.Value</Value>
+                                  <Value>=Fields!TotalSales.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -402,7 +310,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TotalNetSales</rd:DefaultName>
+                          <rd:DefaultName>TotalSales</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -426,7 +334,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -440,10 +347,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Get_QuantityNetSalesPerBook</DataSetName>
-            <Top>0.68625in</Top>
-            <Left>0.43625in</Left>
-            <Height>0.5in</Height>
-            <Width>5.26042in</Width>
+            <Top>0.51958in</Top>
+            <Left>0.44667in</Left>
+            <Height>0.86458in</Height>
+            <Width>5.09375in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -451,10 +358,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.70833in</Height>
+        <Height>2in</Height>
         <Style />
       </Body>
-      <Width>8.10417in</Width>
+      <Width>6.5in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -471,5 +378,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>dc8dd8f7-2bc9-4e60-9215-d35d2ef8b118</rd:ReportID>
+  <rd:ReportID>71045625-8431-478f-824d-d88aac8b1690</rd:ReportID>
 </Report>
