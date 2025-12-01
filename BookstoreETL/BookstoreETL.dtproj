@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-O9GB0OM</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUx+2YEacaUO9HAbJm2slpwAAAAACAAAAAAAQZgAAAAEAACAAAACzB76IJuTnSjQ6i//GXGHVRfQ4PAdHgukT/8cNgMFLrQAAAAAOgAAAAAIAACAAAAAHeNIeJLdHlOPrsxBMhWUuPRrVZXixe0/xfLOns1tJoZAAAAA7CcnkZS22kc/G6IMK+3FOFtvS5ir6WeiArsRI2L9X+T6gwXSqMFaMNm6WIPyDLKXVdX1lLWR869K+8GSLNfezLvhNpvD+SfEiUttPZ+Sd18IkWvUnGSbO6kywqXPg4ohcn1sUyGKSuzmTe/LT1u46+HGW3au9vjjba5PeT8LGXaCDUdE2inXbwPxRdtBssbFAAAAAIxusmfmymqR973gGwcky6Q6Xaraj0BkbtLkl2kwnzlQdApcQ9UW7hpXzPJgdc4eAePRV+83m++BPlPH83/GJsw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAN3mJojkrGEGoT6VZErw4tgAAAAACAAAAAAAQZgAAAAEAACAAAACMy/4zNXQvWzjx3BJIM3gG/FKjPOsej3kQp9HQTNiffQAAAAAOgAAAAAIAACAAAABT10OOvxYkz+VnuMGkO8m340JkvfQkBPdJQ9CqulwVzJAAAAANM6oVFeA0IVhv+IYkXt0nYQid0d0ZfKDCsLOIIV79OeUPl952PFchZii7d3KwQshyYVeY0bJ9RUPVTi2KpE3YX1Yp3j8A9jKzDRXr0sbgGb0iairJdFzRSip05JHkG0/HrmHMCFTt47S5zSOIW/C1TExxQCu+hDhW5rd37hXuCmoWAkwtlb7ATCm3Ra7oQ6NAAAAAgYy2o9Qq9KD/ElHJxFsgSJELblDpF1Xmz/oflumm4bmNh6S/ylIX0wsL9jUfMxREYQDBK+hm2PiI2kMFzi/Oyg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -46,10 +46,10 @@
                 <SSIS:Property SSIS:Name="Name">DimBook</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">14</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">16</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{CF7BE21B-271E-4372-9A01-9676892BE122}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E02EA1D0-07FE-4AC6-8AA5-5EA7780168F6}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -82,7 +82,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=BookstoreDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimBook-{51C4646B-C7B0-4549-9060-FF44DF763EBE}localhost.BookstoreDW;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-1DVSRKL\SQL2025;Initial Catalog=BookstoreDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimBook-{51C4646B-C7B0-4549-9060-FF44DF763EBE}Destination.BookstoreDW;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -186,7 +186,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">DESKTOP-1DVSRKL\SQL2025</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -230,7 +230,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimBook-{7C956F49-5637-4353-AC19-6B7D366A6732}localhost.Bookstore;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-1DVSRKL\SQL2025;Initial Catalog=Bookstore;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimBook-{7C956F49-5637-4353-AC19-6B7D366A6732}Source.Bookstore;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -334,7 +334,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">DESKTOP-1DVSRKL\SQL2025</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
